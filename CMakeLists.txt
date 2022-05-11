@@ -27,16 +27,6 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/rpavlik-cmake-module
 include(CreateLaunchers)
 include(MSVCMultipleProcessCompile) # /MP
 
-#if(INCLUDE_DISTRIB)
-#	add_subdirectory(distrib)
-#endif(INCLUDE_DISTRIB)
-
-message("include${OpenCV_INCLUDE_DIRS}")
-message("lib${OPENCV_LIBRARY}")
-message("libdir${OpenCV_LIBS_DIRS}")
-message("opengl${OPENGL_LIBRARY}")
-
-
 include_directories(
 	${OpenCV_INCLUDE_DIRS}
 	external/AntTweakBar-1.16/include/
@@ -48,9 +38,6 @@ include_directories(
 	.
 )
 
-#link_directories(
-#	${OpenCV_LIBS}
-#)
 
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
