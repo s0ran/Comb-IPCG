@@ -64,8 +64,8 @@ add_executable(marker-based-AR
 	common/texture.hpp
 	common/objloader.cpp
 	common/objloader.hpp
-#	src/StandardShading.vertexshader
-#	src/StandardShading.fragmentshader
+	src/StandardShading.vertexshader
+	src/StandardShading.fragmentshader
 )
 target_link_libraries(marker-based-AR
 	${ALL_LIBS}
