@@ -2,5 +2,8 @@
     "code-runner.executorMap": {
         "cpp": "cd $workspaceRoot/build/ && cmake --build . && /bin/sh $workspaceRoot/build/launch-$fileNameWithoutExt.sh",
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }

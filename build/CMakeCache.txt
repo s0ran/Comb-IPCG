@@ -234,6 +234,9 @@ Comb-IPCG_SOURCE_DIR:STATIC=/Users/s0ran/Desktop/Laboratory/Assignments/Comb-IPC
 //Doxygen documentation generation tool (http://www.doxygen.org)
 DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 
+//No help, variable specified on the command line.
+ENABLE_OPENGL:UNINITIALIZED=ON
+
 //Path to a program.
 GDB_COMMAND:FILEPATH=GDB_COMMAND-NOTFOUND
 
@@ -282,6 +285,9 @@ GLFW_USE_MENUBAR:BOOL=ON
 //Use the full resolution of Retina displays
 GLFW_USE_RETINA:BOOL=ON
 
+//No help, variable specified on the command line.
+HAVE_OPENGL:UNINITIALIZED=ON
+
 //Path to a library.
 IOKIT_FRAMEWORK:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/IOKit.framework
 
@@ -303,6 +309,9 @@ OpenCV_DIR:PATH=/opt/homebrew/lib/cmake/opencv4
 
 //Fix for VC10 Compiler regarding pstdint.h redefinition errors
 VC10_STDINT_FIX:BOOL=OFF
+
+//No help, variable specified on the command line.
+WITH_OPENGL:UNINITIALIZED=ON
 
 //Dependencies for the target
 assimp_LIB_DEPENDS:STATIC=general;zlib;
