@@ -173,14 +173,18 @@ bool checkChess(Mat& image,Size chessSize,vector<Point2f>& imagepoint){
     return success;
 }
 
-void compute_MVP(GLuint MatrixID,GLuint ViewMatrixID,GLuint ModelMatrixID){
+void compute_MVP(GLuint MatrixID,GLuint ViewMatrixID,GLuint ModelMatrixID,float x,float y,float z){
 	// Compute the MVP matrix from keyboard and mouse input
 	// computeMatricesFromInputs();
 	//mat4 ProjectionMatrix = getProjectionMatrix(); 
 	mat4 ProjectionMatrix = perspective(radians(45.0f), (float) WIDTH / HEIGHT, 0.1f, 100.0f);
 	//mat4 ViewMatrix = getViewMatrix();
-	mat4 ViewMatrix = lookAt(vec3(0,0,5), vec3(0,0,0), vec3(0,1,0));
 	mat4 ModelMatrix = mat4(1.0);
+	ModelMatrix=glm::rotate(ModelMatrix, x, glm::vec3(1, 0, 0));
+	ModelMatrix=glm::rotate(ModelMatrix, y, glm::vec3(0, -1, 0));
+	ModelMatrix=glm::rotate(ModelMatrix, z, glm::vec3(0, 0, -1));
+	mat4 ViewMatrix = lookAt(vec3(0,0,5), vec3(0,0,0), vec3(0,1,0));
+	
 	mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 	// Send our transformation to the currently bound shader, 
 	// in the "MVP" uniform
@@ -270,11 +274,13 @@ int main( void )
             calibrateCamera(InputArrayOfArrays(objectpoints), InputArrayOfArrays(imagepoints), frameSize, cameraMatrix, distCoeffs, R, T);
             solvePnP(Mat(objectpoint),Mat(imagepoint),cameraMatrix,distCoeffs,rvec,tvec);
 			projectPoints(Mat(centor),rvec,tvec,cameraMatrix,distCoeffs,centorpoint);
-			Mat rotation;
+
 			//cout<<rvec<<endl;
 			//Rodrigues(rvec, rotation);
 			//cout<<rotation<<endl;
-			compute_MVP(MatrixID,ViewMatrixID,ModelMatrixID);
+			Point3f rotation(rvec);
+
+			compute_MVP(MatrixID,ViewMatrixID,ModelMatrixID,rotation.x,rotation.y, rotation.z);
 			vec3 lightPos = vec3(4,4,4);
 			glUniform3f(LightID, lightPos.x, lightPos.y, lightPos.z);
 
